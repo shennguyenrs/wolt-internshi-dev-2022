@@ -1,16 +1,33 @@
-import { useState, MouseEvent } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
+
+// Components
+import TextField from './components/TextField';
+import DateTime from './components/DateTime';
 
 // Styles
 import './styles/App.css';
 
 function App() {
   const [fee, setFee] = useState<number>(0);
-  const [value, setValue] = useState<string>();
-  const [distance, setDistance] = useState<string>();
-  const [items, setItems] = useState<string>();
+  const [value, setValue] = useState<number | undefined>(undefined);
+  const [distance, setDistance] = useState<number | undefined>(undefined);
+  const [items, setItems] = useState<number | undefined>(undefined);
   const [orderDate, setOrderDate] = useState<string>('');
   const [showResult, setShowResult] = useState<boolean>(false);
+  const [isDisabled, setIsDisable] = useState<boolean>(true);
 
+  // Update submit button state on values change
+  useEffect(() => {
+    if (value != undefined && distance != undefined && items != undefined) {
+      if (orderDate != '') {
+        setIsDisable(false);
+      }
+    } else {
+      setIsDisable(true);
+    }
+  }, [value, distance, items, orderDate]);
+
+  // Calculate fee on submit form
   const handleCalculateFee = (e: MouseEvent) => {
     e.preventDefault();
 
@@ -67,6 +84,11 @@ function App() {
     setShowResult(true);
   };
 
+  // Handle reset all states
+  const handleReset = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="container">
       <div className="header">
@@ -74,46 +96,49 @@ function App() {
       </div>
       <div className="form-container">
         <div className="form">
-          <label htmlFor="cart_value">Cart Value (€)</label>
-          <input
-            type="text"
-            name="cart_value"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            required
-          />
-          <label htmlFor="delivery_distance">Delivery distance (m)</label>
-          <input
-            type="text"
-            name="delivery_distance"
-            value={distance}
-            onChange={(e) => setDistance(e.target.value)}
-            required
-          />
-          <label htmlFor="item_num">Number of items</label>
-          <input
-            type="number"
-            name="item_num"
-            value={items}
-            onChange={(e) => setItems(e.target.value)}
-            required
-          />
-          <label htmlFor="order_time">Order time</label>
-          <input
-            type="datetime-local"
-            name="order_time"
-            value={orderDate}
-            onChange={(e) => setOrderDate(e.target.value)}
-            required
-          />
-          <div className="form__btn">
-            <button onClick={handleCalculateFee}>Calculate fee</button>
+          <div className="form__input-con">
+            <TextField
+              key="cart_value"
+              label="cart_value"
+              text="Cart Value (€)"
+              sendValue={(value) => setValue(value)}
+            />
+            <TextField
+              key="delivery_distance"
+              label="delivery_distance"
+              text="Delivery distance (m)"
+              sendValue={(value) => setDistance(value)}
+            />
+            <TextField
+              key="items_num"
+              label="items_num"
+              text="Amount of items"
+              sendValue={(value) => setItems(value)}
+            />
+            <DateTime
+              value={orderDate}
+              sendValue={(value) => setOrderDate(value)}
+            />
           </div>
+          <button
+            className="form__btn"
+            onClick={handleCalculateFee}
+            disabled={isDisabled}
+          >
+            Calculate fee
+          </button>
         </div>
         <div className="result">
           <p className={`result__p${showResult ? '--show' : ''}`}>
-            Your delivery fee: €{fee}
+            Your delivery fee
           </p>
+          <br />
+          <p className={`result__p2${showResult ? '--show' : ''}`}>€{fee}</p>
+          {showResult && (
+            <button className="result__btn" onClick={handleReset}>
+              Reset
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -1,0 +1,23 @@
+@import '../variables.scss';
+
+.datetime {
+  display: flex;
+  align-items: center;
+
+  &__label {
+    padding-left: 0.6rem;
+    margin-right: 0.5rem;
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: $blue-wolt;
+  }
+
+  &__input {
+    border-style: none;
+    background-color: $light-gray;
+
+    &:focus {
+      outline-style: none;
+    }
+  }
+}

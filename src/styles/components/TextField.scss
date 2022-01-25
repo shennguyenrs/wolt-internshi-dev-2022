@@ -1,0 +1,84 @@
+@import '../variables.scss';
+
+.input-con {
+  display: flex;
+  position: relative;
+  margin-bottom: 1.2rem;
+
+  &__input {
+    margin-bottom: 1.4rem;
+    padding: 0.1rem 0.6rem;
+    border-style: none;
+    background-color: $light-gray;
+    border-bottom: 1px solid $black;
+    opacity: $opacity-not-show;
+    width: 90%;
+    transition: width 0.1s ease;
+
+    &:focus {
+      outline-style: none;
+      border-bottom: 2px solid $blue-wolt;
+      opacity: $opacity-on-show;
+      width: 100%;
+    }
+
+    &--filled {
+      outline-style: none;
+      border-bottom: 2px solid $blue-wolt;
+      opacity: $opacity-on-show;
+      width: 100%;
+    }
+
+    &--not-valid {
+      color: $red-error;
+      border-bottom: 2px solid $red-error;
+    }
+  }
+
+  &__label {
+    font-size: 0.6rem;
+    font-style: italic;
+    opacity: $opacity-not-show;
+    position: absolute;
+    top: 4px;
+    left: 0.6rem;
+    transition: all 0.2s ease-in-out;
+
+    &--filled {
+      top: -15px;
+      color: $blue-wolt;
+      opacity: $opacity-on-show;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    &--not-valid {
+      color: $red-error;
+    }
+  }
+
+  &__p {
+    position: absolute;
+    font-size: 0.6rem;
+    padding-left: 0.6rem;
+    bottom: 4px;
+    left: 0;
+    color: $red-error;
+    font-style: italic;
+  }
+
+  &__btn {
+    color: $blue-wolt;
+    background-color: $light-gray;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 0.6rem;
+    font-family: $secondary-font;
+
+    &--not-valid {
+      color: $red-error;
+    }
+  }
+}

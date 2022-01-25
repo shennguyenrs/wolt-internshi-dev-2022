@@ -1,10 +1,4 @@
-// Colors
-$blue-wolt: #00c2e8;
-$light-gray: #f8f8f8;
-$white: #fff;
-$black: #202125;
-$primary-font: 'Open Sans', sans-serif;
-$secondary-font: 'Dongle', 'Open Sans', sans-serif;
+@import './variables.scss';
 
 * {
   font-family: $primary-font;
@@ -33,62 +27,89 @@ body {
 }
 
 .form-container {
-  display: flex;
-  justify-content: center;
-  gap: 10vw;
-  padding-top: 2vh;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 10vw;
+  justify-items: center;
+  align-items: center;
+  padding-left: 25vw;
+  padding-right: 25vw;
 }
 
 .form {
-  padding: 2rem 5rem;
-  max-width: 40vw;
+  padding: 2rem 4rem;
+  width: 25vw;
+  height: 50vh;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
   text-align: left;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 80% 20%;
+  justify-items: center;
 
-  label {
-    margin-bottom: 0.5rem;
-    font-size: 0.6rem;
-  }
-
-  input {
-    margin-bottom: 1rem;
+  &__input-con {
+    margin: auto;
+    width: 90%;
   }
 
   &__btn {
-    display: flex;
-    justify-content: center;
-  }
-
-  button {
     margin-top: 1rem;
     border-radius: 3rem;
     border-style: none;
-    background-color: $blue-wolt;
     font-family: $secondary-font;
     font-size: 1.4rem;
     padding-top: 0.2rem;
     color: $white;
     width: 80%;
+    height: fit-content;
+    background-color: $blue-wolt;
+    opacity: 1;
+
+    &:disabled {
+      background-color: $blue-wolt;
+      opacity: 0.2;
+    }
+
+    &:enabled:active {
+      transform: translateY(4px);
+    }
   }
 }
 
 .result {
-  display: flex;
-  align-items: center;
-
-  &__p {
+  &__p,
+  &__p2 {
     color: $black;
-    opacity: 0.2;
+    opacity: $opacity-not-show;
     font-style: italic;
 
     &--show {
-      font-weight: 700;
       font-style: normal;
       color: $blue-wolt;
-      opacity: 1;
+      opacity: $opacity-on-show;
+    }
+  }
+
+  &__p2 {
+    font-size: 3rem;
+
+    &--show {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+  }
+
+  &__btn {
+    margin-top: 2rem;
+    font-size: $primary-font;
+    color: $black;
+    opacity: $opacity-not-show;
+    border: none;
+    background-color: $light-gray;
+
+    &:hover {
+      background-color: $light-gray;
     }
   }
 }
