@@ -1,0 +1,81 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+body {
+  text-align: center;
+  background-color: #f8f8f8;
+  overflow: hidden;
+  color: #202125;
+  height: 100vh;
+}
+
+.header {
+  background-color: #00c2e8;
+}
+.header__title {
+  font-family: "Dongle", "Open Sans", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  gap: 10vw;
+  padding-top: 2vh;
+}
+
+.form {
+  padding: 2rem 5rem;
+  max-width: 40vw;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.form label {
+  margin-bottom: 0.5rem;
+  font-size: 0.6rem;
+}
+.form input {
+  margin-bottom: 1rem;
+}
+.form__btn {
+  display: flex;
+  justify-content: center;
+}
+.form button {
+  margin-top: 1rem;
+  border-radius: 3rem;
+  border-style: none;
+  background-color: #00c2e8;
+  font-family: "Dongle", "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  padding-top: 0.2rem;
+  color: #fff;
+  width: 80%;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+}
+.result__p {
+  color: #202125;
+  opacity: 0.2;
+  font-style: italic;
+}
+.result__p--show {
+  font-weight: 700;
+  font-style: normal;
+  color: #00c2e8;
+  opacity: 1;
+}
+
+/*# sourceMappingURL=App.css.map */
