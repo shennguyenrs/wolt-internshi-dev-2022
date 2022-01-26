@@ -18,8 +18,8 @@ function App() {
 
   // Update submit button state on values change
   useEffect(() => {
-    if (value != undefined && distance != undefined && items != undefined) {
-      if (orderDate != '') {
+    if (value !== undefined && distance !== undefined && items !== undefined) {
+      if (orderDate !== '') {
         setIsDisable(false);
       }
     } else {
@@ -71,7 +71,7 @@ function App() {
     // Friday is 5 in UTC
     // From 3 to 7 PM is from 15 to 19 in UTC
     if (
-      dateTime.getUTCDay() == 5 &&
+      dateTime.getUTCDay() === 5 &&
       dateTime.getUTCHours() >= 15 &&
       dateTime.getHours() <= 19
     ) {

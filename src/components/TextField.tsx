@@ -24,7 +24,7 @@ const TextField = ({
     if (value === '') {
       sendValue(undefined);
     }
-  }, [isError, value]);
+  }, [isError, value, sendValue]);
 
   const handleChangeValue = (e: ChangeEvent) => {
     const currentValue = (e.target as HTMLInputElement).value;
