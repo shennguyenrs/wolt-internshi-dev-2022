@@ -1,0 +1,10 @@
+// Astract files
+@import './abstracts/_variables.scss';
+@import './abstracts/_mixins.scss';
+
+// Core files
+@import './core/_reset.scss';
+
+// Sections files
+@import './sections/_header.scss';
+@import './sections/_form.scss';

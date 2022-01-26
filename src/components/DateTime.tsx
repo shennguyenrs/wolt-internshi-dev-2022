@@ -1,6 +1,3 @@
-// Styles
-import '../styles/components/DateTime.css';
-
 const DateTime = ({
   value,
   sendValue,

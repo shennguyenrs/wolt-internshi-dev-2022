@@ -5,7 +5,7 @@ import TextField from './components/TextField';
 import DateTime from './components/DateTime';
 
 // Styles
-import './styles/App.css';
+import './styles/all.css';
 
 function App() {
   const [fee, setFee] = useState<number>(0);
@@ -80,7 +80,13 @@ function App() {
       return;
     }
 
-    setFee(deliveryFee + surcharge);
+    // Delivery never goes over 15
+    if (deliveryFee + surcharge > 15) {
+      setFee(15);
+    } else {
+      setFee(deliveryFee + surcharge);
+    }
+
     setShowResult(true);
   };
 

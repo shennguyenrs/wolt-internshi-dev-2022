@@ -1,5 +1,3 @@
-@import '../variables.scss';
-
 .input-con {
   display: flex;
   position: relative;
@@ -36,7 +34,7 @@
   }
 
   &__label {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     font-style: italic;
     opacity: $opacity-not-show;
     position: absolute;

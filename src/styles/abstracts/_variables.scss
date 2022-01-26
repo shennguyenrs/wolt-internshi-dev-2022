@@ -1,10 +1,18 @@
+// Colors
 $blue-wolt: #00c2e8;
 $red-error: #ef3e36;
 $light-gray: #f8f8f8;
 $white: #fff;
 $black: #202125;
+
+// Fonts
 $primary-font: 'Open Sans', sans-serif;
 $secondary-font: 'Dongle', 'Open Sans', sans-serif;
+
+// Breakpoints
+$max-phone: 640px;
+$max-tablet: 1024px;
+$min-wide-screen: 1600px;
 
 $opacity-not-show: 0.2;
 $opacity-on-show: 1;

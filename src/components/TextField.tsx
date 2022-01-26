@@ -1,8 +1,5 @@
 import { useState, useEffect, MouseEvent, ChangeEvent } from 'react';
 
-// Styles
-import '../styles/components/TextField.css';
-
 const TextField = ({
   label,
   text,
@@ -61,7 +58,7 @@ const TextField = ({
           isFilled ? 'input-con__input--filled' : ''
         } ${isError && isFilled ? 'input-con__input--not-valid' : ''}`}
         name={label}
-        value={value}
+        value={value || ''}
         onChange={handleChangeValue}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}

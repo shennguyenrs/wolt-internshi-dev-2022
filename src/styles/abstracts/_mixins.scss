@@ -1,0 +1,26 @@
+@mixin for-phone {
+  @media (max-width: $max-phone) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: $max-phone) and (max-width: $max-tablet) {
+    @content;
+  }
+}
+
+@mixin for-wide-screen {
+  @media (min-width: $min-wide-screen) {
+    @content;
+  }
+}
+
+@mixin header-on-phone {
+  @include for-phone {
+    font-size: 10vw;
+  }
+  @include for-tablet {
+    font-size: 10vw;
+  }
+}

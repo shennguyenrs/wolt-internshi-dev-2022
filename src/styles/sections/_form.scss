@@ -1,52 +1,50 @@
-@import './variables.scss';
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  padding: 0 10vw;
+  height: 90vh;
 
-* {
-  font-family: $primary-font;
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-}
+  @include for-phone {
+    grid-template-columns: 1fr;
+    padding: 0 2vw;
+    height: auto;
+  }
 
-body {
-  text-align: center;
-  background-color: $light-gray;
-  overflow: hidden;
-  color: $black;
-  height: 100vh;
-}
+  @include for-tablet {
+    grid-template-columns: 1fr;
+    padding: 0 4rem;
+    height: auto;
+  }
 
-.header {
-  background-color: $blue-wolt;
-
-  &__title {
-    font-family: $secondary-font;
-    font-size: 3rem;
-    font-weight: 700;
-    color: $white;
+  @include for-wide-screen {
+    padding: 0 25vw;
+    column-gap: 10vw;
   }
 }
 
-.form-container {
-  height: 90vh;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  column-gap: 10vw;
-  justify-items: center;
-  align-items: center;
-  padding-left: 25vw;
-  padding-right: 25vw;
-}
-
 .form {
-  padding: 2rem 4rem;
-  width: 25vw;
-  height: 50vh;
+  width: 23rem;
+  height: 30rem;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
-  text-align: left;
   display: grid;
-  grid-template-rows: 80% 20%;
+  grid-template-rows: 85% 15%;
   justify-items: center;
+
+  @include for-phone {
+    padding: 1.4rem 0.8rem;
+    grid-row-start: 2;
+  }
+
+  @include for-tablet {
+    padding: 1.4rem 0.8rem;
+    grid-row-start: 2;
+  }
+
+  @import '../components/_textfield.scss';
+  @import '../components/_datetime.scss';
 
   &__input-con {
     margin: auto;
@@ -78,6 +76,15 @@ body {
 }
 
 .result {
+  @include for-phone {
+    grid-row-start: 1;
+    padding: 1rem 0;
+  }
+
+  @include for-tablet {
+    padding: 2rem 0;
+  }
+
   &__p,
   &__p2 {
     color: $black;
@@ -92,11 +99,14 @@ body {
   }
 
   &__p2 {
-    font-size: 3rem;
+    font-size: 5vw;
+    @include header-on-phone;
 
     &--show {
-      font-size: 3rem;
+      font-size: 5vw;
       font-weight: 700;
+
+      @include header-on-phone;
     }
   }
 
@@ -107,6 +117,10 @@ body {
     opacity: $opacity-not-show;
     border: none;
     background-color: $light-gray;
+
+    @include for-phone {
+      margin-top: 0;
+    }
 
     &:hover {
       background-color: $light-gray;

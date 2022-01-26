@@ -1,0 +1,12 @@
+.header {
+  background-color: $blue-wolt;
+
+  &__title {
+    font-family: $secondary-font;
+    font-size: 4vw;
+    font-weight: 700;
+    color: $white;
+
+    @include header-on-phone;
+  }
+}

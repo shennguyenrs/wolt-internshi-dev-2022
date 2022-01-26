@@ -1,15 +1,22 @@
-@import '../variables.scss';
-
 .datetime {
   display: flex;
   align-items: center;
 
+  @include for-phone {
+    flex-direction: column;
+    margin-top: -1rem;
+  }
+
   &__label {
     padding-left: 0.6rem;
-    margin-right: 0.5rem;
-    font-size: 0.6rem;
+    margin-right: 0.6rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: $blue-wolt;
+
+    @include for-phone {
+      margin-bottom: 0.4rem;
+    }
   }
 
   &__input {
